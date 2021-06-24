@@ -10,4 +10,9 @@ app.post('/produtos/' , (req , res) => {
     produtosControlador.criaProdutos(res , conteudo)
 })
 
+app.get('/produtos/:id' , (req , res) => {
+    const id_produto = req.params.id
+    produtosControlador.buscaPorId(res , id_produto)
+})
+
 module.exports = app

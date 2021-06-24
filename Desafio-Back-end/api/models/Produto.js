@@ -1,17 +1,16 @@
 const produtosDao = require('../dao/dao-produtos')
+const CampoInvalido = require('../errors/CampoInvalido')
 
 class Produto {
     
-    constructor({id ,nome , preco , validade , dataCriacao , dataAtualizacao}){
-        this.id = id
+    constructor({nome , preco , validade}){
         this.nome = nome
         this.preco = preco
         this.validade = validade
-        this.dataCriacao = dataCriacao
-        this.dataAtualizacao = dataAtualizacao
     }
     
     async criarProduto(){
+        this.validaProduto()
         const resultado = await produtosDao.criaProduto({
             nome : this.nome,
             preco : this.preco,
@@ -24,6 +23,20 @@ class Produto {
 
         return resultado
     }
+
+    validaProduto(){
+
+        const nome = this.nome
+        if(typeof nome !== 'string' || nome.length === 0){
+            throw new CampoInvalido(nome)
+        }
+
+        const preco = this.preco
+        if(preco.length === 0 ){
+            throw new CampoInvalido(preco)
+        }
+    }
+
 }
 
 module.exports = Produto
