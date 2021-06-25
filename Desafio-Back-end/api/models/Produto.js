@@ -3,7 +3,8 @@ const CampoInvalido = require('../errors/CampoInvalido')
 
 class Produto {
     
-    constructor({nome , preco , validade}){
+    constructor({id , nome , preco , validade}){
+        this.id = id
         this.nome = nome
         this.preco = preco
         this.validade = validade
@@ -35,6 +36,20 @@ class Produto {
         if(preco.length === 0 ){
             throw new CampoInvalido(preco)
         }
+    }
+
+    async carregaProduto(){
+        
+        const produtoCarregar = await produtosDao.pegaPorId(this.id)
+        this.nome = produtoCarregar.nome
+        this.preco = produtoCarregar.preco
+        this.validade = produtoCarregar.validade
+        this.dataCriacao = produtoCarregar.dataCriacao
+        this.dataAtualizacao = produtoCarregar.dataAtualizacao
+    }
+
+    deletaProduto(){
+        return produtosDao.deletaProtudo(this.id)
     }
 
 }

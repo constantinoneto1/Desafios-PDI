@@ -15,4 +15,9 @@ app.get('/produtos/:id' , (req , res) => {
     produtosControlador.buscaPorId(res , id_produto)
 })
 
+app.delete('/produtos/:id' , (req , res) => {
+    const id = req.params.id
+    produtosControlador.deletaProduto(res , id)
+})
+
 module.exports = app

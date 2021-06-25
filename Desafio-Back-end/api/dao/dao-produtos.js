@@ -23,5 +23,11 @@ module.exports = {
         }
 
         return encontrado
+    },
+
+    deletaProtudo(id){
+        return TabelaProdutos.destroy({
+            where:{ id : id}
+        })
     }
 }

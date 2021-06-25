@@ -34,5 +34,20 @@ module.exports = {
         } catch(erro){
             res.status(404).json(erro.message)
         }
+    },
+
+    async deletaProduto(res , id){
+        try{
+            
+            const produtoADeletar = new Produto({ id : id}) 
+            await produtoADeletar.carregaProduto()
+            
+            await produtoADeletar.deletaProduto()
+            res.status(204)
+            res.end()
+            
+        } catch(erro){
+            res.status(404).json(erro.message)
+        }
     }
 }
