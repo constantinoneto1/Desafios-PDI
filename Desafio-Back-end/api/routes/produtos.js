@@ -20,4 +20,10 @@ app.delete('/produtos/:id' , (req , res) => {
     produtosControlador.deletaProduto(res , id)
 })
 
+app.put('/produtos/:id' , (req , res) => {
+    const id = req.params.id
+    const corpoAtualizar = req.body
+    produtosControlador.atualizaProduto(res , id , corpoAtualizar)
+})
+
 module.exports = app

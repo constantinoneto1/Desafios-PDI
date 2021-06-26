@@ -9,8 +9,8 @@ module.exports = {
             const resultado = await produtoDao.buscaProdutos()
             res.status(200).send(resultado)
         } catch(erro){
-            res.status(400)
-            console.log('erro')
+            res.status(400).json(erro.message)
+            
         }
     },
 
@@ -46,6 +46,19 @@ module.exports = {
             res.status(204)
             res.end()
             
+        } catch(erro){
+            res.status(404).json(erro.message)
+        }
+    },
+
+    async atualizaProduto(res , id , corpo){
+        try{
+            const dados = Object.assign({} , corpo , {id : id})
+            const produtoAAtualizar = new Produto(dados)
+            await produtoAAtualizar.validaProduto()
+            await produtoDao.atualizaProduto(id , produtoAAtualizar)
+            res.status(204)
+            res.end()
         } catch(erro){
             res.status(404).json(erro.message)
         }

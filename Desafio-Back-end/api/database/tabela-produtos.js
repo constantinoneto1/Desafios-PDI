@@ -8,13 +8,21 @@ const colunas = {
     },
 
     preco : {
-        type : Sequelize.FLOAT ,
-        allowNull : false
+        type : Sequelize.STRING ,
+        allowNull : false,
+        validate : {
+            isNumeric : true ,
+            min : 1
+        }
     },
 
     validade : {
-        type : Sequelize.DATEONLY ,
-        allowNull : false
+        type : Sequelize.STRING ,
+        allowNull : false,
+        validate : {
+            isDate : true ,
+            isAfter : "2021-06-06"
+        }
     }
 }
 

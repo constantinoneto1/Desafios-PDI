@@ -3,7 +3,10 @@ const UsuarioInexistente = require('../errors/UsuarioInexistente')
 
 module.exports = {
     buscaProdutos(){
-        return TabelaProdutos.findAll( { raw : true} )
+        return TabelaProdutos.findAll( { 
+            
+            order : ['validade']
+        } )
     },
 
     criaProduto(produtos){
@@ -29,5 +32,10 @@ module.exports = {
         return TabelaProdutos.destroy({
             where:{ id : id}
         })
+    },
+
+    async atualizaProduto(id , produto){
+        await this.pegaPorId(id)
+        return TabelaProdutos.update(produto , { where : { id : id}})
     }
 }

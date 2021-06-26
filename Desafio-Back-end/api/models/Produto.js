@@ -36,6 +36,7 @@ class Produto {
         if(preco.length === 0 ){
             throw new CampoInvalido(preco)
         }
+        
     }
 
     async carregaProduto(){
