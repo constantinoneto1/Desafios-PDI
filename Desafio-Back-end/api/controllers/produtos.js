@@ -9,7 +9,8 @@ module.exports = {
             const resultado = await produtoDao.buscaProdutos()
             res.status(200).send(resultado)
         } catch(erro){
-            res.status(400).json(erro.message)
+            console.log(erro.message)
+            res.status(400).json("Error")
             
         }
     },
@@ -21,7 +22,8 @@ module.exports = {
             
             res.status(201).send(resultado)
         } catch(erro){
-            res.status(400).json(erro.message)
+            console.log(erro.message)
+            res.status(400).json("Mal formulação")
         }
     },
 
@@ -32,7 +34,8 @@ module.exports = {
             res.status(200).send(usuarioUnico)
 
         } catch(erro){
-            res.status(404).json(erro.message)
+            console.log(erro.message)
+            res.status(404).json("Error")
         }
     },
 
@@ -47,7 +50,8 @@ module.exports = {
             res.end()
             
         } catch(erro){
-            res.status(404).json(erro.message)
+            console.log(erro.message)
+            res.status(404).json("Error")
         }
     },
 
@@ -60,7 +64,9 @@ module.exports = {
             res.status(204)
             res.end()
         } catch(erro){
-            res.status(404).json(erro.message)
+            console.log(erro.message)
+            res.status(404).json("Error")
+            
         }
     }
 }
