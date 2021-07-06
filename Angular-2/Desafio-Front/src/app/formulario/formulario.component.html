@@ -1,0 +1,32 @@
+<div class="row">
+    <form class="col s12" #f="ngForm" (ngSubmit)="onSubmit(f)" (ngSubmit)="reset(f)">
+      <div class="row">
+        <div class="input-field col s4">
+          <input id="first_name" type="text" class="validate" name="nome" [(ngModel)]="produto.nome" (input)="trocaTrocado()" #nome="ngModel" required>
+          <label for="first_name">Nome</label>
+          <div *ngIf="valida(nome)">
+            <p class="campoInvalido">Campo obrigatório!</p>
+          </div>
+        </div>
+        <div class="input-field col s4">
+          <input id="first_name" type="text" class="validate" name="preco" [(ngModel)]="produto.preco" (input)="trocaTrocado()" #preco="ngModel" required>
+          <label for="first_name">Preço</label>
+          <div *ngIf="valida(preco)">
+            <p class="campoInvalido">Campo obrigatório!</p>
+          </div>
+        </div>
+        <div class="input-field col s4">
+          <input id="last_name" type="text" class="validate" name="validade" [(ngModel)]="produto.validade" (input)="trocaTrocado()" #validade="ngModel" required>
+          <label for="last_name">Validade</label>
+          <div *ngIf="valida(validade)" >
+            <p class="campoInvalido">Campo obrigatório!</p>
+          </div>
+        </div>
+      </div>
+      <div class="centro">
+      <button class="waves-effect waves-light btn deep-purple lighten-2" [disabled]="!f.valid">Adicionar</button>
+      </div>
+    </form>
+  </div>
+
+  

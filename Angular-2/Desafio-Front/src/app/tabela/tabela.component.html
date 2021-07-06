@@ -1,0 +1,23 @@
+<table>
+    <thead>
+      <tr class="deep-purple lighten-2">
+          <th class="fonte-branca">Nome</th>
+          <th class="fonte-branca">Preço</th>
+          <th class="fonte-branca">Validade</th>
+          <th class="fonte-branca">Ações</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor='let produto of produtos$ | async'>
+        <td>{{ produto.nome }}</td>
+        <td>{{ produto.preco }}</td>
+        <td>{{ produto.validade }}</td>
+        <td>
+          <a class="waves-effect waves-light btn margin-right lime">Editar</a>
+          <a class="waves-effect waves-light btn red">Excluir</a>
+        </td>
+      </tr>
+      
+    </tbody>
+  </table>

@@ -1,0 +1,8 @@
+.centro{
+    display: flex;
+    justify-content: center;
+}
+
+.campoInvalido{
+    color : red;
+}

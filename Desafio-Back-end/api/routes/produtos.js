@@ -1,11 +1,15 @@
 const app = require('express').Router()
 const produtosControlador = require('../controllers/produtos')
+const cors = require('cors');
+
+app.use(cors())
 
 app.get('/produtos/' , (req , res) => {
     produtosControlador.buscaProdutos(res)
 })
 
 app.post('/produtos/' , (req , res) => {
+    console.log('AAAAAAAAAA')
     const conteudo = req.body
     produtosControlador.criaProdutos(res , conteudo)
 })
