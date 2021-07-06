@@ -9,7 +9,6 @@ app.get('/produtos/' , (req , res) => {
 })
 
 app.post('/produtos/' , (req , res) => {
-    console.log('AAAAAAAAAA')
     const conteudo = req.body
     produtosControlador.criaProdutos(res , conteudo)
 })
@@ -21,10 +20,12 @@ app.get('/produtos/:id' , (req , res) => {
 
 app.delete('/produtos/:id' , (req , res) => {
     const id = req.params.id
+    console.log('AAAAAAA')
     produtosControlador.deletaProduto(res , id)
 })
 
 app.put('/produtos/:id' , (req , res) => {
+    console.log('AAAAAAAA')
     const id = req.params.id
     const corpoAtualizar = req.body
     produtosControlador.atualizaProduto(res , id , corpoAtualizar)

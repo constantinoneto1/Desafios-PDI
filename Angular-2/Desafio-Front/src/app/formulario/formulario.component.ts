@@ -17,8 +17,6 @@ export class FormularioComponent implements OnInit {
     validade : null
   }
 
-  tocado : boolean = true
-
   onSubmit(form : any){
 
     console.log(this.produto)
@@ -26,28 +24,25 @@ export class FormularioComponent implements OnInit {
       sucesso => {
         console.log('sucesso')
         this.produtoAdicionado.emit()
+        this.produto = { nome : null , preco : null , validade : null}
+        form.resetForm() 
+        
       }
-    )  
+    ) 
+    
   }
 
   constructor( private tabelaService : TabelaService) { }
 
   valida(form : any){
-    if(form.touched && !form.valid && this.tocado){
+    if(form.touched && !form.valid ){
       return true
     } else{
       return false
     }
   }
 
-  trocaTrocado(){
-    this.tocado = true
-  }
 
-  reset(form : any){
-    this.produto = { nome : null , preco : null , validade : null}
-    this.tocado = false
-  }
 
   ngOnInit() { }
 }

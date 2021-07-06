@@ -18,4 +18,12 @@ export class TabelaService {
   inserirProduto(produtoAdicionado : any){
     return this.http.post(this.API , produtoAdicionado)
   }
+
+  deletarProduto(id : any){
+    return this.http.delete(`http://localhost:3000/produtos/${id}`)
+  }
+
+  atualizaProduto( id : any , body : any){
+    return this.http.put(`${this.API}/${id}` , body)
+  }
 }

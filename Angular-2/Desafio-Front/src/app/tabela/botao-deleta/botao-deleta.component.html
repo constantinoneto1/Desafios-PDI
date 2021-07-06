@@ -1,0 +1,6 @@
+<a class="waves-effect waves-light btn red" *ngIf="escondeBotao()" (click)=abrirModal()>Excluir</a>
+
+<div class="row" *ngIf="escondeModal()">
+    <button class="waves-effect waves-light btn margin-right green col s5" (click)="deletaProdutos()" (click)=abrirModal()>Deletar</button>
+    <button class="waves-effect waves-light btn  orange lighten-1 col s5" (click)=abrirModal()>Cancelar</button>
+</div>

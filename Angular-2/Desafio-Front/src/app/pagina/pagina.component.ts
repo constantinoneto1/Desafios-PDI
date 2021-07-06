@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { FormularioService } from '../formulario/formulario.service';
 import { Produto } from '../tabela/produtos';
 import { TabelaService } from '../tabela/tabela.service';
 
@@ -13,7 +12,7 @@ export class PaginaComponent implements OnInit {
 
   produtos$ : Observable<Produto[]>
 
-  produtoAdicionado(){
+  listaProduto(){
     this.produtos$ = this.tabelaService.listar()
   }
 

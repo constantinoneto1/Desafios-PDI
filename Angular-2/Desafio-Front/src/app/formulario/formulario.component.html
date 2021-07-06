@@ -1,22 +1,22 @@
 <div class="row">
-    <form class="col s12" #f="ngForm" (ngSubmit)="onSubmit(f)" (ngSubmit)="reset(f)">
+    <form class="col s12" #f="ngForm" (ngSubmit)="onSubmit(f)" >
       <div class="row">
         <div class="input-field col s4">
-          <input id="first_name" type="text" class="validate" name="nome" [(ngModel)]="produto.nome" (input)="trocaTrocado()" #nome="ngModel" required>
+          <input id="first_name" type="text" class="validate" name="nome" [(ngModel)]="produto.nome"  #nome="ngModel" required>
           <label for="first_name">Nome</label>
           <div *ngIf="valida(nome)">
             <p class="campoInvalido">Campo obrigatório!</p>
           </div>
         </div>
         <div class="input-field col s4">
-          <input id="first_name" type="text" class="validate" name="preco" [(ngModel)]="produto.preco" (input)="trocaTrocado()" #preco="ngModel" required>
+          <input id="first_name" type="text" class="validate" name="preco" [(ngModel)]="produto.preco"  #preco="ngModel" required>
           <label for="first_name">Preço</label>
           <div *ngIf="valida(preco)">
             <p class="campoInvalido">Campo obrigatório!</p>
           </div>
         </div>
         <div class="input-field col s4">
-          <input id="last_name" type="text" class="validate" name="validade" [(ngModel)]="produto.validade" (input)="trocaTrocado()" #validade="ngModel" required>
+          <input id="last_name" type="text" class="validate" name="validade" [(ngModel)]="produto.validade" placeholder="             (AAAA-MM-DD)"  #validade="ngModel" required>
           <label for="last_name">Validade</label>
           <div *ngIf="valida(validade)" >
             <p class="campoInvalido">Campo obrigatório!</p>

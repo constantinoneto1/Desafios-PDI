@@ -11,11 +11,19 @@
     <tbody>
       <tr *ngFor='let produto of produtos$ | async'>
         <td>{{ produto.nome }}</td>
-        <td>{{ produto.preco }}</td>
-        <td>{{ produto.validade }}</td>
+        <td>{{ produto.preco | currency:'BRL':true}}</td>
+        <td>{{ produto.validade  | date : ' dd/MM/yyyy ' }}</td>
         <td>
-          <a class="waves-effect waves-light btn margin-right lime">Editar</a>
-          <a class="waves-effect waves-light btn red">Excluir</a>
+          <app-botao-adiciona [id]="produto.id" 
+          (produtoAtualizado)="listaProdutos()" 
+          (escondeBotaoDeleta)="mudaBotao()"
+          [estado]="estadoBotao">
+          </app-botao-adiciona>
+          <app-botao-deleta [id]="produto.id" 
+          (produtoDeletado)="listaProdutos()" 
+          (escondeBotaoAtualiza)="mudaBotao()"
+          [estado]="estadoBotao">
+          </app-botao-deleta>
         </td>
       </tr>
       

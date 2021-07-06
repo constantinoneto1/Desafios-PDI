@@ -1,6 +1,5 @@
-import { Component, Input, OnChanges, OnInit } from '@angular/core';
+import { Component, Input, OnInit} from '@angular/core';
 import { Observable } from 'rxjs';
-import { FormularioService } from '../formulario/formulario.service';
 import { Produto } from './produtos';
 import { TabelaService } from './tabela.service';
 
@@ -13,12 +12,20 @@ export class TabelaComponent implements OnInit{
 
   @Input() produtos$ : Observable<Produto[]>
 
-  constructor(){
+  @Input() estadoBotao : boolean = true
+
+  constructor(private tabelaService : TabelaService){
     this.produtos$ = new Observable
   }
 
-  ngOnInit(): void {
-
+  listaProdutos(){
+    this.produtos$ = this.tabelaService.listar()
   }
+
+  mudaBotao(){
+    this.estadoBotao = !this.estadoBotao
+  }
+
+  ngOnInit(): void {}
 
 }

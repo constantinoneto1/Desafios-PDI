@@ -1,0 +1,21 @@
+<a class="waves-effect waves-light btn margin-right lime " *ngIf="escondeBotao()" (click)="abrirModal()" #modal>Editar</a>
+
+<div *ngIf="escondeModal()">
+    <form class="col s12" #f="ngForm" (ngSubmit)="onSubmit(f)" (ngSubmit)="abrirModal()">
+        <div>
+            <div class="input-field col s4">
+                <input class="validate" type="text" placeholder="nome" name="nome" [(ngModel)]="produto.nome" #nome="ngModel" required>
+            </div>
+            <div class="input-field col s4">
+                <input class="validate" type="text" placeholder="preco" name="preco" [(ngModel)]="produto.preco" #preco="ngModel" required>
+            </div>
+            <div class="input-field col s4">
+                <input class="validate" type="text" placeholder="validade" name="validade" [(ngModel)]="produto.validade" #validade="ngModel" required>
+            </div>
+        </div>
+        <div class="row">
+            <button class="waves-effect waves-light btn margin-right green col s5" [disabled]="!f.valid">Atualizar</button>
+            <button class="waves-effect waves-light btn  orange lighten-1 col s5" (click)=abrirModal()>Cancelar</button>
+        </div>
+    </form>
+</div>

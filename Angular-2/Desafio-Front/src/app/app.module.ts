@@ -5,9 +5,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
-import { TabelaComponent } from './tabela/tabela.component'
-import { PaginaComponent } from './pagina/pagina.component';
 import { PaginaModule } from './pagina/pagina.module';
+
 
 
 @NgModule({
@@ -17,10 +16,8 @@ import { PaginaModule } from './pagina/pagina.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    //FormularioModule,
     FormsModule,
     HttpClientModule,
-    //TabelaModule,
     PaginaModule
   ],
   providers: [],
