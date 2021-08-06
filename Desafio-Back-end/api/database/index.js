@@ -5,7 +5,7 @@ const instancia = new Sequelize(
     'root' ,
     'netola' ,
     {
-        host : '127.0.0.1',
+        host : 'host.docker.internal' ,
         dialect : 'mysql'
     }
 )
